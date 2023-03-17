@@ -1,26 +1,21 @@
 #!/usr/bin/env python3
-"""Module for a SQLAlchemy model named User for a database table named csv files.
-"""
+"""Module defining csv file table"""
 
-from sqlalchemy.ext.declarative import declarative_base
+from ..db import db
+from flask_login import UserMixin
+from sqlalchemy import ForeignKey
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, LargeBinary, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 
 
-Base = declarative_base()
-
-
-class CSVFile(Base):
+class CSVFile(UserMixin, db.Model):
     """Model for a database table CSV files."""
     __tablename__ = 'csv_files'
 
-    id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    filename = Column(String(100), nullable=False)
-    file_data = Column(LargeBinary, nullable=False)
-    created_at = Column(DateTime, default=datetime.now, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
+    filename = db.Column(db.String(100), nullable=False)
+    file_data = db.Column(db.LargeBinary, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now, nullable=False)
 
-    user = relationship('User', back_populates='csv_files')
-
-
+    # user = relationship('User', back_populates='csv_files')

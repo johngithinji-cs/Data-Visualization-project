@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
-"""Defines main blueprint which handles regular routes and
-protected pages
-"""
+"""Application routes"""
 
 from flask import Blueprint, render_template
 from flask_login import login_required, current_user
-from . import db
 
 
 main = Blueprint('main', __name__)
 
-@main.route('/')
+
+# Other routes
+@main.route('/', strict_slashes=False)
 def index():
-    """route to home page"""
-    return render_template('index.html')
+  """Route to home page"""
+  return render_template('index.html')
 
 @main.route('/profile')
 @login_required
 def profile():
-    """route to individual profile page"""
-    return render_template('profile.html', name=current_user.name)
+  """
+  Route to individual profile page
+  """
+  # ---Should load user files for individual user from database---
+  return render_template('profile.html', name=current_user.name)
