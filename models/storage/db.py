@@ -17,8 +17,11 @@ class DB:
     def __init__(self) -> None:
         """Instantiates a new DBStorage object
         """
-        self._engine = create_engine("mysql+mysqldb://analyst:project
+        self._engine = create_engine("mysql+mysqldb://analyst:project\
                                       @localhost/user_data")
+        
+        Base = declarative_base()
+        
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
@@ -63,7 +66,7 @@ class DB:
             raise NoResultFound
         return user
 
-     def update_user(self, user_id: int, **kwargs) -> None:
+    def update_user(self, user_id: int, **kwargs) -> None:
         """A function to update user information in the event of
         a change
         Args: user_id

@@ -3,16 +3,17 @@
 
 from flask import Flask, jsonify, request, abort, redirect
 from models.storage.auth import Auth
-from models.storage.db import DB
 
 
 app = Flask(__name__)
+AUTH = Auth()
+
 
 
 @app.route("/", methods=["GET"], strict_slashes=False)
 def welcome():
     """Welcome message."""
-    return jsonify({"message": "Welcome, visualize your way
+    return jsonify({"message": "Welcome, visualize your way\
                     into insightful information"})
 
 
@@ -93,8 +94,6 @@ def update_password():
 
     return jsonify({"email": email, "message": "Password updated"})
 
-
-AUTH = Auth()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
