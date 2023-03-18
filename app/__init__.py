@@ -14,7 +14,7 @@ from .models.csv_data import CSVData
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'qwerty'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
-  'mysql+mysqlconnector://root:changretta@localhost/user_data'
+  'mysql+mysqlconnector://analyst:project@localhost/user_data'
 
 
 login_manager = LoginManager()
