@@ -6,6 +6,7 @@ from flask_login import LoginManager
 from .db import db
 from .models.user import User
 from .models.csv_file import CSVFile
+from .models.csv_data import CSVData
 
 
 
