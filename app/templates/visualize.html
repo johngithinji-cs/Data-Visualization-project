@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Data Visualization</h1>
+  <form action="{{ url_for('main.visualize') }}" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="file">Select file to visualize:</label>
+      <input type="file" name="file" class="form-control-file" id="file" required>
+    </div>
+    <div class="form-group">
+      <label for="visualization_type">Select visualization type:</label>
+      <select class="form-control" id="visualization_type" name="visualization_type" required>
+        <option value="">Select a visualization type</option>
+        <option value="bar">Bar graph</option>
+        <option value="pie">Pie chart</option>
+        <option value="line">Line graph</option>
+        <option value="scatter">Scatter plot</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Visualize</button>
+  </form>
+{% endblock %}
