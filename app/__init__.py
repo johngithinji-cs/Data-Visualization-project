@@ -20,7 +20,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
 create_dash_app(app)
 
 login_manager = LoginManager()
-login_manager.logi_view = 'auth.login'
+login_manager.login_view = 'auth.login'
 login_manager.init_app(app)
 
 db.init_app(app)
