@@ -7,7 +7,7 @@ from .db import db
 from .models.user import User
 from .models.csv_file import CSVFile
 from .models.csv_data import CSVData
-
+from .analytics_app.app import create_dash_app
 
 
 # initialize flask
@@ -16,6 +16,8 @@ app.config['SECRET_KEY'] = 'qwerty'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
   'mysql+mysqlconnector://root:changretta@localhost/user_data'
 
+# Importing the dash app and passing out flask instance to it
+create_dash_app(app)
 
 login_manager = LoginManager()
 login_manager.logi_view = 'auth.login'
