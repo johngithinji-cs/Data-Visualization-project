@@ -6,9 +6,18 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import login_user, login_required, logout_user
 from .db import db
 from .models.user import User
+import os
+from os.path import join, dirname, realpath
+
+import pandas as pd
+import mysql.connector
 
 
 auth = Blueprint('auth', __name__)
+
+# Uploaded files folder
+UPLOAD_FOLDER = 'static/files'
+#auth.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
 
 @auth.route('/login')
 def login():
@@ -55,6 +64,21 @@ def signup_post():
   db.session.commit()
 
   return redirect(url_for('auth.login'))
+
+@auth.route('/upload', strict_slashes=False)
+def upload():
+    """Route to upload file page."""
+    return render_template('upload.html')
+
+@auth.route('/upload', methods=['POST'])
+def uploadFile():
+    uploaded_file = request.files['file']
+    if uploaded_file.filename != '':
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'],
+                                 uploaded_file.filename)
+        uploaded_file.save(file_path)
+
+#def parseCSV(filePath):
 
 @auth.route('/logout')
 @login_required
