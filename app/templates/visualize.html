@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<body>
+    <h5 class="title-upload">
+        CSV upload successful!
+    </h5>
+    <div class="visual-box">
+        <form method="POST" action="" enctype="multipart/form-data">
+        <label for="chart">Select a Visualization Type:</label>
+            <select name="chart" class="chart">
+            <option hidden selected>Choose a Chart</option>
+            <option value="plot">Line</option>
+            <option value="scatter">Scatter</option>
+            <option value="bar">Bar</option>
+            <option value="hist">Histogram</option>
+            <option value="pie">Pie</option>
+            </select>
+        </form>
+    </div>
+</body>
+{% endblock %}

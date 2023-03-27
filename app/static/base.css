@@ -243,3 +243,33 @@ input[type="checkbox"]:checked + label:before {
     border-radius: 20px;
     text-shadow: none;
 }
+
+.visual-box {
+    background: #31572c;
+    border: 1px solid #283618;
+    width: 350px;
+    height: 80px;
+    text-align: center;
+    color: #e4ec88;
+    padding: 10px 20px;
+    margin-left: 2%;
+    margin-top: -22px;
+
+}
+
+.chart {
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+    background: #e4ec88;
+    color: #283618;
+    height: 27px;
+    width: 150px;
+    margin-top: 10px;
+}
+
+.title-upload {
+    color: #ee4d50;
+    margin-top: -180px;
+    margin-right: 900px;
+}

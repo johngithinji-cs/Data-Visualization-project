@@ -8,16 +8,23 @@ from .db import db
 from .models.user import User
 import os
 from os.path import join, dirname, realpath
-
+from flask import current_app
 import pandas as pd
 import mysql.connector
 
 
 auth = Blueprint('auth', __name__)
 
-# Uploaded files folder
-UPLOAD_FOLDER = 'static/files'
-#auth.config['UPLOAD_FOLDER'] =  UPLOAD_FOLDER
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="analyst",
+    password="project",
+    database="user_data"
+)
+
+uploads_dir = os.path.join(auth.root_path, 'fileUploads')
+os.makedirs(uploads_dir, exist_ok=True)
+
 
 @auth.route('/login')
 def login():
@@ -72,13 +79,20 @@ def upload():
 
 @auth.route('/upload', methods=['POST'])
 def uploadFile():
+    """Function to save uploaded file. """
     uploaded_file = request.files['file']
     if uploaded_file.filename != '':
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'],
+        file_path = os.path.join(uploads_dir,
                                  uploaded_file.filename)
         uploaded_file.save(file_path)
+        return redirect(url_for('auth.visualize'))
 
-#def parseCSV(filePath):
+@auth.route('/dashboard', methods=['POST', 'GET'])
+def visualize():
+    """Route to visualization page."""
+    return render_template('visualize.html')
+#def visualize(filePath):
+ #   csvData = pd.read_csv(filePath, header=0)
 
 @auth.route('/logout')
 @login_required

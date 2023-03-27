@@ -15,7 +15,7 @@ app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'qwerty'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
   'mysql+mysqlconnector://analyst:project@localhost/user_data'
-
+app.config['UPLOAD_FOLDER'] = 'static/files'
 
 login_manager = LoginManager()
 login_manager.logi_view = 'auth.login'
