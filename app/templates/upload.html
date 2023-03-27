@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  Upload your CSV file
+<h1 class="title-upload">
+    Upload your CSV file
 </h1>
 <form method="POST" action="" enctype="multipart/form-data">
-  <input class="input is-large" type="file" name="file" placeholder="File" autofocus="">
-  <button class="button is-block is-info is-large is-fullwidth">Submit</button>
+    <label class="drop-container">
+        <span class="drop-title">Drop files here</span>
+        or
+        <input class="input" type="file" name="file" placeholder="File" autofocus="" required>
+    </label>
+    <button class="button-upload">Submit</button>
+</form>
 {% endblock %}
