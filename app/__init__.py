@@ -11,7 +11,7 @@ from .models.csv_data import CSVData
 
 
 # initialize flask
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates', static_folder='static')
 app.config['SECRET_KEY'] = 'qwerty'
 app.config['SQLALCHEMY_DATABASE_URI'] =\
   'mysql+mysqlconnector://analyst:project@localhost/user_data'

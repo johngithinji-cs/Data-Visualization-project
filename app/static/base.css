@@ -1,0 +1,245 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    color: black;
+    font-family: "Fira Sans", sans-serif;
+    background-color: #e4ec88;
+}
+  
+nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background-color: #283618;
+}
+  
+nav .heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+}
+  
+nav ul {
+    display: flex;
+    list-style: none;
+}
+  
+nav ul li {
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+}
+  
+nav ul li a {
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+}
+  
+nav ul li:hover {
+    background-color: #97a867;
+}
+  
+nav ul li a:hover {
+    color: white;
+}
+
+.hero-body {
+    text-align: center;
+    margin-top: 200px;
+}
+
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+}
+
+.box h2 {
+    margin-left: -50%;
+    margin-bottom: 10px;
+}
+
+.box {
+    margin: -50px 0 0 -50px;
+    height: 200px;
+    width: 500px;
+}
+
+.box-1 {
+}
+
+.danger {
+    background-color: rgb(250, 194, 194);
+    border: 1px solid rgb(226, 168, 168);
+    color: rgb(224, 92, 92);
+    width: 300px;
+}
+
+.field {
+    width: 200px;
+    height: 42px;
+}
+
+.field input {
+    height: 35px;
+    background-color: #31572c;
+    font-size: medium;
+    color: #e4ec88;
+}
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 20px;
+  color: #132a13;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #132a13;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.button {
+    background: #41723b;
+    color: #e4ec88;
+    height: 40px;
+    width: 60px;
+    border: 2px solid #376131;
+    border-radius: 20px;
+    text-shadow: none;
+    margin-left: -10%;
+}
+
+.button:hover {
+    background: #283618;
+    color: #e4ec88;
+    border: 1px solid #152504;
+    border-radius: 20px;
+    text-shadow: none;
+}
+
+.title-upload {
+    margin-top: -10%;
+    margin-bottom: 30px;
+}
+
+.drop-container {
+    background: #90a955;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #283618;
+    color: #283618;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    margin-left: 27%;
+}
+
+.drop-container:hover {
+    background: #3b5821;
+    border-color: #4f772d;
+    color: #dbe945
+}
+
+.drop-container:hover .drop-title {
+    color: #dbe945;
+}
+
+.drop-title {
+    color: #1f2b13;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+}
+
+.drop-container input {
+    width: 350px;
+    max-width: 100%;
+    color: #283618;
+    padding: 5px;
+    background: rgb(245, 241, 241);
+    border-radius: 10px;
+    border: 1px solid #5bba6f;
+}
+
+.drop-container input::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #41723b;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #e4ec88;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+.drop-container input::file-selector-button:hover {
+    background: #283618;
+}
+
+.button-upload {
+    background: #41723b;
+    color: #e4ec88;
+    height: 40px;
+    width: 60px;
+    border: 2px solid #376131;
+    border-radius: 20px;
+    text-shadow: none;
+    margin-top: 20px;
+}
+
+.button-upload:hover {
+    background: #283618;
+    color: #e4ec88;
+    border: 1px solid #152504;
+    border-radius: 20px;
+    text-shadow: none;
+}
