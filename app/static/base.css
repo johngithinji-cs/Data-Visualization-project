@@ -321,3 +321,37 @@ input[type="checkbox"]:checked + label:before {
     border-radius: 10px;
     text-shadow: none;
 }
+
+.sub_mit {
+    width: 70px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #283618;
+    margin-left: 50%;
+    margin-top: 20px;
+}
+
+.sub_mit ul {
+    list-style: none;
+}
+
+.sub_mit ul li {
+    padding-top: 5px;
+    border-radius: 10px;
+    transition: 0.2s ease-in;
+    text-align: center;
+}
+
+.sub_mit ul li a {
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+}
+
+.sub_mit:hover {
+    border-radius: 10px;
+    background-color: #97a867;
+}

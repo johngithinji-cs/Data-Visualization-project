@@ -15,7 +15,7 @@ import pandas as pd
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 import matplotlib
-matplotlib.use('Agg')
+#matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import mpld3
 
@@ -99,51 +99,44 @@ def uploadFile():
         uploaded_file.save(file_path)
         return redirect(url_for('auth.visualize'))
 
+@auth.route('/demo', strict_slashes=False)
+def demo_app():
+    """Route to upload file page."""
+    return render_template('demo.html')
+
 @auth.route('/dashboard', strict_slashes=False)
 def visualize():
     """Route to visualization page."""
     csvData = pd.read_csv(file_path, header=0)
     columns = csvData.columns
-    return render_template('plot.html', columns=columns, fname=file_name)
+    return render_template('visualize.html', columns=columns, fname=file_name)
 
-@auth.route('/dashboard')
+@auth.route('/display')
 def display():
     """Route to display the visualization."""
+    csvData = pd.read_csv(file_path, header=0)
     x = request.form.get('x')
     y = request.form.get('y')
     chart = request.form.get('chart')
     return render_template('plot.html', x=x, y=y, chart=chart)
 
-def create_figure():
+def create_figure(data, x, y, chart):
     """Function to draw the plots"""
     fig, ax = plt.subplots(figsize = (6,4))
     fig.patch.set_facecolor('#E8E5DA')
 
-    x = request.form.get('x')
-    y = request.form.get('y')
-    chart = request.form.get('chart')
-
     if chart == 'Bar':
-        ax.bar(x, y, color = "#304C89")
+        ax.bar(data["x"], data["y"], marker="*", color = "#304C89")
     elif chart == 'Line':
-        ax.bar(x, y, color = "#304C89")
+        ax.plot(data["x"], data["y"], marker="*", color = "#304C89")
     elif chart == 'Scatter':
-        ax.scatter(x, y, color = "#304C89")
+        ax.scatter(data["x"], data["y"], marker="*", color = "#304C89")
     elif chart == 'Histogram':
-        ax.hist(x, y, color = "#304C89")
+        ax.hist(data["x"], data["y"], marker="*", color = "#304C89")
 
-    plt.xticks(rotation = 30, size = 5)
-    plt.xlabel(x, size=5)
-    plt.ylabel(y, size=5)
-    plt.title(x + ' vs ' + y, size = 5)
-
-    image_path = os.path.join(uploads_dir, 'plot.png')
-    plt.savefig(image_path)
-    html_str = mpld3.fig_to_html(fig)
-    Html_file= open("visualize.html","w")
-    Html_file.write(html_str)
-    Html_file.close()
-
+    return fig
+   # img_path = os.path.join(uploads_dir, "my_plot.png")
+    #fig.savefig(img_path)
 
 @auth.route('/logout')
 @login_required

@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <title>Demo</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+  </head>
+  <body>
+
+    <py-config>
+      packages = ["matplotlib", "pandas"]
+    </py-config>
+
+    <py-script>
+      import random
+      import pandas as pd
+      import matplotlib.pyplot as plt
+
+      x = random.sample(range(0, 100), 30)
+      y = random.sample(range(0, 100), 30)
+
+      tdata = {"x": x, "y": y}
+      test_data = pd.DataFrame(tdata)
+
+      def plot(data):
+          plt.rcParams["figure.figsize"] = (6,4)
+          fig, ax = plt.subplots()
+          bars = ax.scatter(data["x"], data["y"], marker="*")
+          plt.title("Random data")
+          display(fig, target="graph-area", append=False)
+
+      plot(test_data)
+    </py-script>
+
+    <py-repl>
+        test_data
+    </py-repl>
+
+    <div id="graph-area"></div>
+  </body>
+</html>
