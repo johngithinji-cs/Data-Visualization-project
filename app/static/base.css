@@ -247,13 +247,42 @@ input[type="checkbox"]:checked + label:before {
 .visual-box {
     background: #31572c;
     border: 1px solid #283618;
+    border-radius: 5px;
     width: 350px;
     height: 80px;
     text-align: center;
     color: #e4ec88;
     padding: 10px 20px;
-    margin-left: 2%;
+    margin-left: 3%;
     margin-top: -22px;
+
+}
+
+.x-visual-box {
+    background: #31572c;
+    border: 1px solid #283618;
+    border-radius: 5px;
+    width: 350px;
+    height: 80px;
+    text-align: center;
+    color: #e4ec88;
+    padding: 10px 20px;
+    margin-left: 37%;
+    margin-top: -80px;
+
+}
+
+.y-visual-box {
+    background: #31572c;
+    border: 1px solid #283618;
+    border-radius: 5px;
+    width: 350px;
+    height: 80px;
+    text-align: center;
+    color: #e4ec88;
+    padding: 10px 20px;
+    margin-left: 70%;
+    margin-top: -82px;
 
 }
 
@@ -264,7 +293,7 @@ input[type="checkbox"]:checked + label:before {
     background: #e4ec88;
     color: #283618;
     height: 27px;
-    width: 150px;
+    width: 155px;
     margin-top: 10px;
 }
 
@@ -272,4 +301,23 @@ input[type="checkbox"]:checked + label:before {
     color: #ee4d50;
     margin-top: -180px;
     margin-right: 900px;
+}
+
+.v-button {
+    background: #41723b;
+    color: #e4ec88;
+    height: 40px;
+    width: 60px;
+    border: 2px solid #376131;
+    border-radius: 5px;
+    text-shadow: none;
+    margin-top: 20px;
+}
+
+.v-button:hover {
+    background: #283618;
+    color: #e4ec88;
+    border: 1px solid #152504;
+    border-radius: 10px;
+    text-shadow: none;
 }

@@ -8,7 +8,7 @@
     <div class="visual-box">
         <form method="POST" action="" enctype="multipart/form-data">
         <label for="chart">Select a Visualization Type:</label>
-            <select name="chart" class="chart">
+            <select name="chart" id="plot" class="chart">
             <option hidden selected>Choose a Chart</option>
             <option value="plot">Line</option>
             <option value="scatter">Scatter</option>
@@ -18,5 +18,28 @@
             </select>
         </form>
     </div>
+    <div class="x-visual-box">
+	<form method="POST" action="" enctype="multipart/form-data">
+        <label for="x">X dimension value:</label>
+            <select name="x" id="x" class="chart">
+            <option hidden selected>Choose X Column</option>
+	    {% for col in columns %}
+            <option value={{ col }}>{{ col }}</option>
+	    {% endfor %}
+            </select>
+        </form>
+    </div>
+    <div class="y-visual-box">
+	<form method="POST" action="" enctype="multipart/form-data">
+        <label for="y">Y dimension value:</label>
+            <select name="y" id="y" class="chart">
+            <option hidden selected>Choose Y Column</option>
+            {% for col in columns %}
+            <option value={{ col }}>{{ col }}</option>
+            {% endfor %}
+            </select>
+        </form>
+    </div>
+    <button class="v-button">Submit</button>
 </body>
 {% endblock %}
