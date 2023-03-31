@@ -4,6 +4,9 @@ It does this by drawing meaningful information from data to help users make well
 
 The application takes in csv files and provides insightful and interactive visuals which help the user to  understand the data better.
 
+<p align="center">
+### Home Page
+</p>
 ![home](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/home.png)
 
 
