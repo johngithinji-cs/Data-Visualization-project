@@ -65,6 +65,12 @@ to visualize the data.
 Upload Page
 </p>
 
+![input](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/upload.png)
+
+<p align="center">
+Input Page
+</p>
+
 ![input](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/input.png)
 
 <p align="center">
