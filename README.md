@@ -4,7 +4,11 @@ It does this by drawing meaningful information from data to help users make well
 
 The application takes in csv files and provides insightful and interactive visuals which help the user to  understand the data better.
 
-![dashboard](/home_page.png)
+<p align="center">
+Home Page
+</p>
+
+![home](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/home.png)
 
 
 ### Installation and Usage
@@ -56,9 +60,24 @@ to visualize the data.
 > /display
 
 ## Sample Views
-![input](/input)
-![bar](/bar_chart)
-![scatter](/scatter)
+
+<p align="center">
+Upload Page
+</p>
+
+![input](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/input.png)
+
+<p align="center">
+Visualization Page 2
+</p>
+
+![bar](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/bar.png)
+
+<p align="center">
+Visualization Page 2
+</p>
+
+![scatter](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/scatter.png)
 
 ## Tech Stacks - Languages and Libraries used
 - Python
