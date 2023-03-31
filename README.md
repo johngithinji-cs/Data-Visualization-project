@@ -14,7 +14,7 @@ Home Page
 ### Installation and Usage
 ```bash
 # Clone this repository
-$ git clone https://github.com/johngithinji-cs/Data-Visualization-project.git`
+$ git clone https://github.com/johngithinji-cs/Data-Visualization-project.git
 
 # enusre the pwd is .../Data-Visualization-project
 $ pwd
