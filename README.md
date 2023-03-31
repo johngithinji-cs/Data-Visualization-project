@@ -7,6 +7,7 @@ The application takes in csv files and provides insightful and interactive visua
 <p align="center">
 ### Home Page
 </p>
+
 ![home](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/home.png)
 
 
