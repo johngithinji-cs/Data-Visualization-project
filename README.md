@@ -30,6 +30,10 @@ certain priviledges only after logging in.
 The user has the ability to upload csv files as well as choose the type of chart that he/she wants to to use 
 to visualize the data.
 
+<p align="center">
+Upload Page
+</p>
+
 ![architecture](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/architecture.png)
 
 ## API's
