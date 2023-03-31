@@ -36,7 +36,7 @@ Application Architecture
 
 ![architecture](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/architecture.png)
 
-## API's
+## End Points
 ### authentication
 > /login (GET and POST)
 - Renders the login page and returns login data respectively
