@@ -15,6 +15,7 @@ $ pwd
 
 # Run the application server
 $ flask run
+```
 
 After running the application, navigate to local host port 5000 on your web browser and explore the application.
 It contains an authentication mechanism implemented using the Flask-login package. This enable users to access 
