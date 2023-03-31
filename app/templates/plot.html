@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Data Chart</title>
+    <title>Data plots</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
@@ -22,32 +22,66 @@
       url = (
           "https://raw.githubusercontent.com/Cheukting/pyscript-ice-cream/main/bj-products.csv"
       )
-
       data = pd.read_csv(open_url(url))
 
-      x = "name"
-      y = "rating"
-      chart = "Horizontal Bar"
+      current_selected = []
+      charts = js.document.getElementsByName("chart")
 
-      def plot(data, x, y, chart):
-          plt.rcParams["figure.figsize"] = (15,10)
+      def plot(data, chart):
+          plt.rcParams["figure.figsize"] = (11,10)
           fig, ax = plt.subplots()
-          if chart == "Scatter":
-              plot = ax.scatter(data[x], data[y], marker="*")
           if chart == "Line":
-            plot = ax.plot(data[x], data[y])
+            plot = ax.plot(data["name"], data["rating"], color='red')
           if chart == "Bar":
-            plot = ax.bar(data[x], data[y])
+            plot = ax.bar(data["name"], data["rating"], color='cyan')
           if chart == "Horizontal Bar":
-            plot = ax.barh(data[x], data[y])
+            plot = ax.barh(data["name"], data["rating"], color='green')
+          if chart == "Scatter":
+            plot = ax.scatter(data["name"], data["rating"], marker="*", color='magenta')
           if chart == "Histogram":
-            plot = ax.hist(data[x])
-          plt.title("Data Plot")
+            plot = ax.hist(data["rating"], color='yellow')
+          plt.title("Rating of ice cream flavours")
           display(fig, target="graph-area", append=False)
 
-      plot(data, x, y, chart)
+      def select_chart(event):
+          for ele in charts:
+              if ele.checked:
+                  current_selected = ele.value
+                  break
+          if current_selected == "ALL":
+              plot(data, "Bar")
+          else:
+              chart = ele.value
+              plot(data, chart)
+
+      ele_proxy = create_proxy(select_chart)
+
+      for ele in charts:
+          if ele.value == "ALL":
+            ele.checked = True
+            current_selected = ele.value
+            chart = ele.value
+          ele.addEventListener("change", ele_proxy)
+
+      plot(data, chart)
 
     </py-script>
+
+    <div id="input" style="margin: 20px;">
+      Select the chart type: <br/>
+      <input type="radio" id="all" name="chart" value="ALL">
+      <label for="all"> All </label>
+      <input type="radio" id="bar" name="chart" value="Bar">
+      <label for="bar"> Bar </label>
+      <input type="radio" id="horizontal_bar" name="chart" value="Horizontal Bar">
+      <label for="horizontal_bar"> Horizontal Bar </label>
+      <input type="radio" id="line" name="chart" value="Line">
+      <label for="line"> Line </label>
+      <input type="radio" id="scatter" name="chart" value="Scatter">
+      <label for="scatter"> Scatter </label>
+      <input type="radio" id="histogram" name="chart" value="Histogram">
+      <label for="histogram"> Histogram </label>
+    </div>
 
     <py-repl>
       data
