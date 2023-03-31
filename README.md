@@ -48,7 +48,9 @@ to visualize the data.
 - Renders the upload page and returns the uploaded file, which is then stored in a folder
 
 > /dashboard
+
 > /demo
+
 > /display
 
 ## Sample Views
