@@ -60,8 +60,23 @@ to visualize the data.
 > /display
 
 ## Sample Views
+
+<p align="center">
+Upload Page
+</p>
+
 ![input](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/input.png)
+
+<p align="center">
+Visualization Page 2
+</p>
+
 ![bar](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/bar.png)
+
+<p align="center">
+Visualization Page 2
+</p>
+
 ![scatter](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/scatter.png)
 
 ## Tech Stacks - Languages and Libraries used
