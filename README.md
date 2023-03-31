@@ -87,7 +87,7 @@ Visualization
 - pandas
 - matplotlib
 - pytest
-- dash (deprecated)
+~~~ dash ~~~
 
 ## Authors
 - [John Githinji](./https://github.com/johngithinji-cs)
