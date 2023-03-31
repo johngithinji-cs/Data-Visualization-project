@@ -31,7 +31,7 @@ The user has the ability to upload csv files as well as choose the type of chart
 to visualize the data.
 
 <p align="center">
-Upload Page
+Application Architecture
 </p>
 
 ![architecture](https://github.com/johngithinji-cs/Data-Visualization-project/blob/main/app/static/README/architecture.png)
