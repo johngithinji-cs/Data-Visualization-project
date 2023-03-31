@@ -267,9 +267,8 @@ input[type="checkbox"]:checked + label:before {
     text-align: center;
     color: #e4ec88;
     padding: 10px 20px;
-    margin-left: 37%;
-    margin-top: -80px;
-
+    margin-left: 10%;
+    margin-top: -22px;
 }
 
 .y-visual-box {
@@ -281,8 +280,8 @@ input[type="checkbox"]:checked + label:before {
     text-align: center;
     color: #e4ec88;
     padding: 10px 20px;
-    margin-left: 70%;
-    margin-top: -82px;
+    margin-left: 60%;
+    margin-top: -75px;
 
 }
 

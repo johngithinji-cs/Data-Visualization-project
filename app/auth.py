@@ -120,24 +120,6 @@ def display():
     chart = request.form.get('chart')
     return render_template('plot.html', x=x, y=y, chart=chart)
 
-def create_figure(data, x, y, chart):
-    """Function to draw the plots"""
-    fig, ax = plt.subplots(figsize = (6,4))
-    fig.patch.set_facecolor('#E8E5DA')
-
-    if chart == 'Bar':
-        ax.bar(data["x"], data["y"], marker="*", color = "#304C89")
-    elif chart == 'Line':
-        ax.plot(data["x"], data["y"], marker="*", color = "#304C89")
-    elif chart == 'Scatter':
-        ax.scatter(data["x"], data["y"], marker="*", color = "#304C89")
-    elif chart == 'Histogram':
-        ax.hist(data["x"], data["y"], marker="*", color = "#304C89")
-
-    return fig
-   # img_path = os.path.join(uploads_dir, "my_plot.png")
-    #fig.savefig(img_path)
-
 @auth.route('/logout')
 @login_required
 def logout():

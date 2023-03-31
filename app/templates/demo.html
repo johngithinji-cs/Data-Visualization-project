@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Demo</title>
+    <title>Data plots</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
     <script defer src="https://pyscript.net/latest/pyscript.js"></script>
@@ -12,28 +12,72 @@
     </py-config>
 
     <py-script>
+      import js
       import random
       import pandas as pd
       import matplotlib.pyplot as plt
 
-      x = random.sample(range(0, 100), 30)
-      y = random.sample(range(0, 100), 30)
+      from pyodide.http import open_url
+      from pyodide.ffi import create_proxy
+
+      x = random.sample(range(0, 100), 50)
+      y = random.sample(range(0, 100), 50)
 
       tdata = {"x": x, "y": y}
-      test_data = pd.DataFrame(tdata)
+      data = pd.DataFrame(tdata)
+      charts = js.document.getElementsByName("chart")
+      current_selected = []
 
-      def plot(data):
-          plt.rcParams["figure.figsize"] = (6,4)
+      def plot(data, chart):
+          plt.rcParams["figure.figsize"] = (7,6)
           fig, ax = plt.subplots()
-          bars = ax.scatter(data["x"], data["y"], marker="*")
+          if chart == "Line":
+            plot = ax.plot(data["x"], data["y"])
+          if chart == "Bar":
+            plot = ax.bar(data["x"], data["y"])
+          if chart == "Scatter":
+            plot = ax.scatter(data["x"], data["y"], marker="*")
           plt.title("Random data")
           display(fig, target="graph-area", append=False)
 
-      plot(test_data)
+      def select_chart(event):
+          for ele in charts:
+              if ele.checked:
+                  current_selected = ele.value
+                  break
+          if current_selected == "ALL":
+              plot(data, "Bar")
+          else:
+              chart = ele.value
+              plot(data, chart)
+
+      ele_proxy = create_proxy(select_chart)
+
+      for ele in charts:
+          if ele.value == "ALL":
+            ele.checked = True
+            current_selected = ele.value
+            chart = ele.value
+          ele.addEventListener("change", ele_proxy)
+
+      plot(data, chart)
+
     </py-script>
 
+    <div id="input" style="margin: 20px;">
+      Select the chart type: <br/>
+      <input type="radio" id="all" name="chart" value="ALL">
+      <label for="all"> All </label>
+      <input type="radio" id="bar" name="chart" value="Bar">
+      <label for="bar"> Bar </label>
+      <input type="radio" id="line" name="chart" value="Line">
+      <label for="line"> Line </label>
+      <input type="radio" id="scatter" name="chart" value="Scatter">
+      <label for="scatter"> Scatter </label>
+    </div>
+
     <py-repl>
-        test_data
+      data
     </py-repl>
 
     <div id="graph-area"></div>

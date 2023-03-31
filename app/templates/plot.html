@@ -25,6 +25,8 @@
       data = pd.read_csv(open_url(url))
 
       current_selected = []
+      curr_selected = []
+      flavour_elements = js.document.getElementsByName("flavour")
       charts = js.document.getElementsByName("chart")
 
       def plot(data, chart):
@@ -48,11 +50,18 @@
               if ele.checked:
                   current_selected = ele.value
                   break
-          if current_selected == "ALL":
+
+          for elem in flavour_elements:
+              if elem.checked:
+                  curr_selected = elem.value
+                  break
+          
+          if current_selected == "ALL" or curr_selected == "ALL":
               plot(data, "Bar")
           else:
+              filter = data.apply(lambda x: elem.value in x["ingredients"], axis=1)
               chart = ele.value
-              plot(data, chart)
+              plot(data[filter], chart)
 
       ele_proxy = create_proxy(select_chart)
 
@@ -62,6 +71,12 @@
             current_selected = ele.value
             chart = ele.value
           ele.addEventListener("change", ele_proxy)
+
+      for elem in flavour_elements:
+          if elem.value == "ALL":
+            elem.checked = True
+            curr_selected = elem.value
+          elem.addEventListener("change", ele_proxy)
 
       plot(data, chart)
 
@@ -81,6 +96,22 @@
       <label for="scatter"> Scatter </label>
       <input type="radio" id="histogram" name="chart" value="Histogram">
       <label for="histogram"> Histogram </label>
+    </div>
+
+    <div id="input" style="margin: 20px;">
+      Select your 🍨 flavour: <br/>
+      <input type="radio" id="all" name="flavour" value="ALL">
+      <label for="all"> All 🍧</label>
+      <input type="radio" id="chocolate" name="flavour" value="COCOA">
+      <label for="chocolate"> Chocolate 🍫</label>
+      <input type="radio" id="cherrie" name="flavour" value="CHERRIES">
+      <label for="cherrie"> Cherries 🍒</label>
+      <input type="radio" id="berries" name="flavour" value="BERRY">
+      <label for="berries"> Berries 🍓</label>
+      <input type="radio" id="cheese" name="flavour" value="CHEESE">
+      <label for="cheese"> Cheese 🧀</label>
+      <input type="radio" id="peanut" name="flavour" value="PEANUT">
+      <label for="peanut"> Peanut 🥜</label>
     </div>
 
     <py-repl>
