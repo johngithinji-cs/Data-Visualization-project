@@ -1,6 +1,8 @@
 # Data Visualization
-This project is a data analysis and visualization web application that aims at solving the big data problem by drawing meaningful information from data to help users make well informed decisions. 
-It takes in csv files and provides insightful and interactive visuals which help the user to  understand the data better.
+This project is a data analysis and visualization web application that aims at solving the big data problem.
+It does this by drawing meaningful information from data to help users make well informed decisions.
+
+The application takes in csv files and provides insightful and interactive visuals which help the user to  understand the data better.
 
 ![dashboard](/home_page.png)
 
