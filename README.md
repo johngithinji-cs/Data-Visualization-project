@@ -17,9 +17,11 @@ $ pwd
 $ flask run
 
 After running the application, navigate to local host port 5000 on your web browser and explore the application.
-It contains an authentication mechanism implemented using the Flask-login package. This enable users to access certain priviledges only after logging in.
+It contains an authentication mechanism implemented using the Flask-login package. This enable users to access 
+certain priviledges only after logging in.
 
-The user has the ability to upload csv files as well as choose the type of chart that he/she wants to to use to visualize the data.
+The user has the ability to upload csv files as well as choose the type of chart that he/she wants to to use 
+to visualize the data.
 
 ![architecture](/architecture)
 
